@@ -1,0 +1,29 @@
+*.swp
+*~
+\#*\#
+.\#*
+
+
+.target
+
+.DS_Store
+
+# logs
+spray.log
+
+
+target/
+.classpath
+.project
+.settings
+
+# Java class files
+*.class
+
+# sbt
+target
+lib_managed
+src_managed
+project/boot/
+
+
