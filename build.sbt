@@ -1,11 +1,8 @@
-import AssemblyKeys._
-import com.typesafe.startscript.StartScriptPlugin
-
 organization  := "com.example"
 
 version       := "0.1-SNAPSHOT"
 
-scalaVersion  := "2.10.3"
+scalaVersion  := "2.11.6"
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-feature", "-encoding", "utf8")
 
@@ -14,34 +11,30 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= {
-  val akkaVersion = "2.2.3"
-  val sprayVersion = "1.2.0"
+  val akkaVersion = "2.3.9"
+  val sprayVersion = "1.3.3"
   Seq(
-    "io.spray"            %   "spray-can"       % sprayVersion,
-    "io.spray"            %   "spray-routing"   % sprayVersion,
-    "io.spray"            %   "spray-testkit"   % sprayVersion,
-    "io.spray"            %   "spray-httpx"     % sprayVersion,
-    "io.spray"            %%  "spray-json"      % "1.2.5",
+    "io.spray"            %%  "spray-can"       % sprayVersion,
+    "io.spray"            %%  "spray-routing"   % sprayVersion,
+    "io.spray"            %%  "spray-testkit"   % sprayVersion,
+    "io.spray"            %%  "spray-httpx"     % sprayVersion,
+    "io.spray"            %%  "spray-json"      % "1.3.2",
     "com.typesafe.akka"   %%  "akka-actor"      % akkaVersion,
     "com.typesafe.akka"   %%  "akka-slf4j"      % akkaVersion,
     "com.typesafe.akka"   %%  "akka-testkit"    % akkaVersion,
-    "org.scalatest"       %%  "scalatest"       % "2.0"         % "test",
-    "ch.qos.logback"      %   "logback-classic" % "1.0.13"
+    "org.scalatest"       %%  "scalatest"       % "2.2.4"         % "test",
+    "ch.qos.logback"      %   "logback-classic" % "1.1.3"
   )
 }
 
-// Typesafe Console
-atmosSettings
-
-// sbt-revolver settings
-seq(Revolver.settings: _*)
+Revolver.settings
 
 // Assembly settings
 mainClass in Global := Some("com.example.Boot")
 
 jarName in assembly := "spray-template.jar"
 
-assemblySettings
 
 // StartScript settings
-seq(StartScriptPlugin.startScriptForClassesSettings: _*)
+import com.typesafe.sbt.SbtStartScript
+seq(SbtStartScript.startScriptForClassesSettings: _*)

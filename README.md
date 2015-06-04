@@ -21,14 +21,5 @@ Follow these steps to begin:
 
         > re-stop
 
-
-Run with Typesafe Console
-https://github.com/sbt/sbt-atmos
-
-        atmos:run
-Browse to http://localhost:9900/
-
-
-
 $ sbt assembly
 
